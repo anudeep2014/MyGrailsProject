@@ -9,4 +9,7 @@ class Address {
     City    city
     static constraints = {
     }
+    String toString(){
+        return "$city.name , $state.name , $country.name"
+    }
 }
