@@ -39,15 +39,6 @@
 				</dl>
 				</g:if>
 			
-				<g:if test="${addressInstance?.country}">
-				<dl class="fieldcontain">
-					<dt><g:message code="address.country.label" default="Country" /></dt>
-					
-						<dd><g:link controller="country" action="show" id="${addressInstance?.country?.id}">${addressInstance?.country?.encodeAsHTML()}</g:link></dd>
-					
-				</dl>
-				</g:if>
-			
 				<g:if test="${addressInstance?.line1}">
 				<dl class="fieldcontain">
 					<dt><g:message code="address.line1.label" default="Line1" /></dt>
@@ -71,15 +62,6 @@
 					<dt><g:message code="address.pincode.label" default="Pincode" /></dt>
 					
 						<dd><g:fieldValue bean="${addressInstance}" field="pincode"/></dd>
-					
-				</dl>
-				</g:if>
-			
-				<g:if test="${addressInstance?.state}">
-				<dl class="fieldcontain">
-					<dt><g:message code="address.state.label" default="State" /></dt>
-					
-						<dd><g:link controller="state" action="show" id="${addressInstance?.state?.id}">${addressInstance?.state?.encodeAsHTML()}</g:link></dd>
 					
 				</dl>
 				</g:if>

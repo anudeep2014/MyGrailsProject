@@ -30,15 +30,6 @@
                                 <div class="panel-body">
                                 <ol class="property-list city">
 			
-				<g:if test="${cityInstance?.country}">
-				<dl class="fieldcontain">
-					<dt><g:message code="city.country.label" default="Country" /></dt>
-					
-						<dd><g:link controller="country" action="show" id="${cityInstance?.country?.id}">${cityInstance?.country?.encodeAsHTML()}</g:link></dd>
-					
-				</dl>
-				</g:if>
-			
 				<g:if test="${cityInstance?.name}">
 				<dl class="fieldcontain">
 					<dt><g:message code="city.name.label" default="Name" /></dt>

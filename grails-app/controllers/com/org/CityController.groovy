@@ -20,9 +20,7 @@ class CityController {
     }
 
     def save() {
-        def cityInstance      = new City(params)  
-        cityInstance.state    = State.get(params.state.id)
-        cityInstance.country  = Country.get(params.country.id)        
+        def cityInstance = new City(params)
         if (!cityInstance.save(flush: true)) {
             render(view: "create", model: [cityInstance: cityInstance])
             return

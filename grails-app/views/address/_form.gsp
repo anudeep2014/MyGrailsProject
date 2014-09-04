@@ -10,14 +10,6 @@
 	<g:select id="city" name="city.id" from="${com.org.City.list()}" optionKey="id" required="" value="${addressInstance?.city?.id}" class="form-control many-to-one"/>
 </div>
 
-<div class="form-group ${hasErrors(bean: addressInstance, field: 'country', 'error')} required">
-	<label for="country">
-		<g:message code="address.country.label" default="Country" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="country" name="country.id" from="${com.org.Country.list()}" optionKey="id" required="" value="${addressInstance?.country?.id}" class="form-control many-to-one"/>
-</div>
-
 <div class="form-group ${hasErrors(bean: addressInstance, field: 'line1', 'error')} ">
 	<label for="line1">
 		<g:message code="address.line1.label" default="Line1" />
@@ -40,13 +32,5 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field class="form-control" name="pincode" type="number" value="${addressInstance.pincode}" required=""/>
-</div>
-
-<div class="form-group ${hasErrors(bean: addressInstance, field: 'state', 'error')} required">
-	<label for="state">
-		<g:message code="address.state.label" default="State" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="state" name="state.id" from="${com.org.State.list()}" optionKey="id" required="" value="${addressInstance?.state?.id}" class="form-control many-to-one"/>
 </div>
 

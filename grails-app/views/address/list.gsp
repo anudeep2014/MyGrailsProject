@@ -34,15 +34,11 @@
 					
 						<th><g:message code="address.city.label" default="City" /></th>
 					
-						<th><g:message code="address.country.label" default="Country" /></th>
-					
 						<g:sortableColumn property="line1" title="${message(code: 'address.line1.label', default: 'Line1')}" />
 					
 						<g:sortableColumn property="line2" title="${message(code: 'address.line2.label', default: 'Line2')}" />
 					
 						<g:sortableColumn property="pincode" title="${message(code: 'address.pincode.label', default: 'Pincode')}" />
-					
-						<th><g:message code="address.state.label" default="State" /></th>
 					
 					</tr>
 				</thead>
@@ -52,15 +48,11 @@
 					
 						<td><g:link action="show" id="${addressInstance.id}">${fieldValue(bean: addressInstance, field: "city")}</g:link></td>
 					
-						<td>${fieldValue(bean: addressInstance, field: "country")}</td>
-					
 						<td>${fieldValue(bean: addressInstance, field: "line1")}</td>
 					
 						<td>${fieldValue(bean: addressInstance, field: "line2")}</td>
 					
 						<td>${fieldValue(bean: addressInstance, field: "pincode")}</td>
-					
-						<td>${fieldValue(bean: addressInstance, field: "state")}</td>
 					
 					</tr>
 				</g:each>
