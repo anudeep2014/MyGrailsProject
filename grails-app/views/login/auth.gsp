@@ -16,7 +16,11 @@
                     </div>
                 </g:if>
                 <div class="bs-example">
-                    <form action='${postUrl}' method='POST' id='loginForm'  autocomplete='off'>
+                    <div class="container">
+                     <div class="panel panel-primary">
+                            <div class="panel-heading">LogIn</div>
+                            <div class="panel-body">
+                              <form action='${postUrl}' method='POST' id='loginForm'  autocomplete='off'>
                         <div class="form-group">
                             <label for="inputEmail">Username</label>
                             <input type="text" name='j_username' class="form-control" id="inputEmail" placeholder="Username">
@@ -30,6 +34,11 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
+                            </div>
+                        </div>                    
+                    </div>
+
+                   
                 </div>
             </div>
         </div>
