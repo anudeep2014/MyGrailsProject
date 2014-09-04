@@ -62,14 +62,15 @@
 				</g:each>
 				</tbody>
 			</table>
+                         <div class="pagination">
+				<g:paginate total="\${${propertyName}Total}" />
+			</div>
                                 </div>
                             </div>
                         </div>
 
 			
-			<div class="pagination">
-				<g:paginate total="\${${propertyName}Total}" />
-			</div>
+			
 		</div>
 	</body>
 </html>

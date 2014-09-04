@@ -50,14 +50,15 @@
 				</g:each>
 				</tbody>
 			</table>
+                         <div class="pagination">
+				<g:paginate total="${stateInstanceTotal}" />
+			</div>
                                 </div>
                             </div>
                         </div>
 
 			
-			<div class="pagination">
-				<g:paginate total="${stateInstanceTotal}" />
-			</div>
+			
 		</div>
 	</body>
 </html>

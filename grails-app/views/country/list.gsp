@@ -46,14 +46,15 @@
 				</g:each>
 				</tbody>
 			</table>
+                         <div class="pagination">
+				<g:paginate total="${countryInstanceTotal}" />
+			</div>
                                 </div>
                             </div>
                         </div>
 
 			
-			<div class="pagination">
-				<g:paginate total="${countryInstanceTotal}" />
-			</div>
+			
 		</div>
 	</body>
 </html>

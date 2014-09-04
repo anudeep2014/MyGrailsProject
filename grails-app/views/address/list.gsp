@@ -66,14 +66,15 @@
 				</g:each>
 				</tbody>
 			</table>
+                         <div class="pagination">
+				<g:paginate total="${addressInstanceTotal}" />
+			</div>
                                 </div>
                             </div>
                         </div>
 
 			
-			<div class="pagination">
-				<g:paginate total="${addressInstanceTotal}" />
-			</div>
+			
 		</div>
 	</body>
 </html>
