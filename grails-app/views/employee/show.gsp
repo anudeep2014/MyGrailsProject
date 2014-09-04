@@ -8,83 +8,97 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#show-employee" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="show-employee" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<ol class="property-list employee">
+		<!--<a href="#show-employee" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>-->
+                 <div class="container">
+                    <ul class="breadcrumb">
+                        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+                        <li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+                        <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+                   </ul>               
+                </div>                
+		<div id="show-employee" class="content scaffold-show" role="main">			
+			
+                        <div class="container">
+                                    <g:if test="${flash.message}">                      
+                                        <div class="alert alert-success">
+                                            <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                            <strong>Success!</strong> "${flash.message}"
+                                        </div>
+                                    </g:if>
+                                                     <div class="panel panel-primary">
+                                <div class="panel-heading"><g:message code="default.show.label" args="[entityName]" /></div>
+                                <div class="panel-body">
+                                <ol class="property-list employee">
 			
 				<g:if test="${employeeInstance?.address}">
-				<li class="fieldcontain">
-					<span id="address-label" class="property-label"><g:message code="employee.address.label" default="Address" /></span>
+				<dl class="fieldcontain">
+					<dt><g:message code="employee.address.label" default="Address" /></dt>
 					
-						<span class="property-value" aria-labelledby="address-label"><g:link controller="address" action="show" id="${employeeInstance?.address?.id}">${employeeInstance?.address?.encodeAsHTML()}</g:link></span>
+						<dd><g:link controller="address" action="show" id="${employeeInstance?.address?.id}">${employeeInstance?.address?.encodeAsHTML()}</g:link></dd>
 					
-				</li>
+				</dl>
 				</g:if>
 			
 				<g:if test="${employeeInstance?.age}">
-				<li class="fieldcontain">
-					<span id="age-label" class="property-label"><g:message code="employee.age.label" default="Age" /></span>
+				<dl class="fieldcontain">
+					<dt><g:message code="employee.age.label" default="Age" /></dt>
 					
-						<span class="property-value" aria-labelledby="age-label"><g:fieldValue bean="${employeeInstance}" field="age"/></span>
+						<dd><g:fieldValue bean="${employeeInstance}" field="age"/></dd>
 					
-				</li>
+				</dl>
 				</g:if>
 			
 				<g:if test="${employeeInstance?.dob}">
-				<li class="fieldcontain">
-					<span id="dob-label" class="property-label"><g:message code="employee.dob.label" default="Dob" /></span>
+				<dl class="fieldcontain">
+					<dt><g:message code="employee.dob.label" default="Dob" /></dt>
 					
-						<span class="property-value" aria-labelledby="dob-label"><g:formatDate date="${employeeInstance?.dob}" /></span>
+						<dd><g:formatDate date="${employeeInstance?.dob}" /></dd>
 					
-				</li>
+				</dl>
 				</g:if>
 			
 				<g:if test="${employeeInstance?.firstName}">
-				<li class="fieldcontain">
-					<span id="firstName-label" class="property-label"><g:message code="employee.firstName.label" default="First Name" /></span>
+				<dl class="fieldcontain">
+					<dt><g:message code="employee.firstName.label" default="First Name" /></dt>
 					
-						<span class="property-value" aria-labelledby="firstName-label"><g:fieldValue bean="${employeeInstance}" field="firstName"/></span>
+						<dd><g:fieldValue bean="${employeeInstance}" field="firstName"/></dd>
 					
-				</li>
+				</dl>
 				</g:if>
 			
 				<g:if test="${employeeInstance?.lastName}">
-				<li class="fieldcontain">
-					<span id="lastName-label" class="property-label"><g:message code="employee.lastName.label" default="Last Name" /></span>
+				<dl class="fieldcontain">
+					<dt><g:message code="employee.lastName.label" default="Last Name" /></dt>
 					
-						<span class="property-value" aria-labelledby="lastName-label"><g:fieldValue bean="${employeeInstance}" field="lastName"/></span>
+						<dd><g:fieldValue bean="${employeeInstance}" field="lastName"/></dd>
 					
-				</li>
+				</dl>
 				</g:if>
 			
 				<g:if test="${employeeInstance?.middleName}">
-				<li class="fieldcontain">
-					<span id="middleName-label" class="property-label"><g:message code="employee.middleName.label" default="Middle Name" /></span>
+				<dl class="fieldcontain">
+					<dt><g:message code="employee.middleName.label" default="Middle Name" /></dt>
 					
-						<span class="property-value" aria-labelledby="middleName-label"><g:fieldValue bean="${employeeInstance}" field="middleName"/></span>
+						<dd><g:fieldValue bean="${employeeInstance}" field="middleName"/></dd>
 					
-				</li>
+				</dl>
 				</g:if>
 			
 			</ol>
-			<g:form>
+                                </div>
+                            
+                            </div>
+                            <g:form>
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${employeeInstance?.id}" />
-					<g:link class="edit" action="edit" id="${employeeInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+					<g:link class="btn btn-primary edit"  action="edit" id="${employeeInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+					<g:actionSubmit class="btn btn-primary delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
-			</g:form>
+                            </g:form>
+                        </div>
+
+			
+			
 		</div>
 	</body>
 </html>

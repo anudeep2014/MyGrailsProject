@@ -6,4 +6,10 @@ if (typeof jQuery !== 'undefined') {
 			$(this).fadeOut();
 		});
 	})(jQuery);
+        $(document).ready(function(){
+
+            $(".close").click(function(){
+              $(".alert").removeClass("in");
+            });
+        });    
 }

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
+		<title>Welcome to MyApp</title>
 		<style type="text/css" media="screen">
 			#status {
 				background-color: #eee;
@@ -81,7 +81,7 @@
 		</style>
 	</head>
 	<body>
-		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<!--<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="status" role="complementary">
 			<h1>Application Status</h1>
 			<ul>
@@ -101,21 +101,41 @@
 					<li>${plugin.name} - ${plugin.version}</li>
 				</g:each>
 			</ul>
-		</div>
+		</div>-->
 		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
+			
+			<!--<p>Congratulations, you have successfully started your first Grails application! At the moment
 			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
 			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
+			   click on each to execute its default action:</p>-->
 
 			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
-				<ul>
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <div class="pull-right">                                     
+                                            <a href="logout" class="btn btn-default">Logout</a>
+                                        </div>
+                                        <h3 class="panel-title">
+                                             <sec:ifLoggedIn>
+                                                Welcome Back <sec:username/>!
+                                                </sec:ifLoggedIn>
+                                                <sec:ifNotLoggedIn>
+                                                <g:link controller='login' action='auth'>Login</g:link>
+                                              </sec:ifNotLoggedIn>                                     
+                                        
+                                        </h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        
+                                       <ul class="list-group">  List of controllers                                                                          
 					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
+                                                <li class="list-group-item"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
 					</g:each>
-				</ul>
+				    </ul>
+                                    
+                                    </div>
+                                </div>
+				  
 			</div>
 		</div>
 	</body>

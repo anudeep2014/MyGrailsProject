@@ -45,7 +45,7 @@
 
     private renderStringEditor(domainClass, property) {
         if (!cp) {
-            return "<g:textField name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
+            return "<g:textField class='form-control' name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
         } else {
 			def sb = new StringBuilder("")
             if ("textarea" == cp.widget || (cp.maxSize > 250 && !cp.password && !cp.inList)) {
@@ -56,7 +56,7 @@
  				sb << ' value="${' << "${domainInstance}?.${property.name}" << '}"'
 				sb << '/>'
             } else if (cp.inList) {
-				sb << '<g:select name="' << property.name << '"'
+				sb << '<g:select class="form-control" name="' << property.name << '"'
 				sb << ' from="${' << "${domainInstance}.constraints.${property.name}.inList" << '}"'
 				if (isRequired()) sb << ' required=""'
 				sb << ' value="${' << "${domainInstance}?.${property.name}" << '}"'
@@ -65,15 +65,15 @@
 				sb << '/>'
 			} else {
 				if (cp.password) {
-					sb << '<g:field type="password"'
+					sb << '<g:field class="form-control" type="password"'
 				} else if (cp.url) {
-					sb << '<g:field type="url"'
+					sb << '<g:field class="form-control" type="url"'
 				} else if (cp.email) {
-					sb << '<g:field type="email"'
+					sb << '<g:field class="form-control"  type="email"'
 				} else {
 					sb << '<g:textField'
 				}
-				sb << ' name="' << property.name << '"'
+				sb << ' class="form-control" name="' << property.name << '"'
 				if (cp.maxSize) sb << ' maxlength="' << cp.maxSize << '"'
 				if (!cp.editable) sb << ' readonly="readonly"'
 				if (cp.matches) sb << ' pattern="${' << "${domainInstance}.constraints.${property.name}.matches" << '}"'
@@ -100,7 +100,7 @@
  			sb << ' optionKey="id"'
 			if (isRequired()) sb << ' required=""'
  			sb << ' value="${' << "${domainInstance}?.${property.name}" << '?.id}"'
- 			sb << ' class="many-to-one"'
+ 			sb << ' class="form-control many-to-one"'
  			sb << renderNoSelection(property)
  			sb << '/>'
 			sb as String
@@ -124,7 +124,7 @@
             sb << ' size="5"'
             if (isRequired()) sb << ' required=""'
             sb << ' value="${' << "${domainInstance}?.${property.name}" << '*.id}"'
-            sb << ' class="many-to-many"'
+            sb << ' class="form-control many-to-many"'
             sb << '/>'
             sb as String
 
@@ -152,7 +152,7 @@
             if (property.type == Byte) {
                 return "<g:select name=\"${property.name}\" from=\"\${-128..127}\" class=\"range\" value=\"\${fieldValue(bean: ${domainInstance}, field: '${property.name}')}\" />"
             } else {
-                return "<g:field type=\"number\" name=\"${property.name}\" value=\"\${${domainInstance}.${property.name}}\" />"
+                return "<g:field class='form-control' type=\"number\" name=\"${property.name}\" value=\"\${${domainInstance}.${property.name}}\" />"
             }
         } else {
 	        def sb = new StringBuilder()
@@ -174,7 +174,7 @@
 				sb << '/>'
             } else {
 				sb << '<g:field'
-				sb << ' name="' << property.name << '"'
+				sb << ' class="form-control" name="' << property.name << '"'
 				if (property.type in [float, double, Float, Double, BigDecimal]) {
 					sb << ' value="${' << "fieldValue(bean: ${domainInstance}, field: '${property.name}')" << '}"'
 				} else {
@@ -207,12 +207,12 @@
     private renderDateEditor(domainClass, property) {
         def precision = (property.type == Date || property.type == java.sql.Date || property.type == Calendar) ? "day" : "minute";
         if (!cp) {
-            return "<g:datePicker name=\"${property.name}\" precision=\"${precision}\" value=\"\${${domainInstance}?.${property.name}}\" />"
+            return "<g:datePicker class='form-control' name=\"${property.name}\" precision=\"${precision}\" value=\"\${${domainInstance}?.${property.name}}\" />"
         } else {
             if (!cp.editable) {
                 return "\${${domainInstance}?.${property.name}?.toString()}"
             } else {
-                def sb = new StringBuilder("<g:datePicker name=\"${property.name}\" ")
+                def sb = new StringBuilder("<g:datePicker class='form-control' name=\"${property.name}\" ")
                 if (cp.format) sb << "format=\"${cp.format}\" "
                 if (cp.widget) sb << "widget=\"${cp.widget}\" "
                 cp.attributes.each { k, v ->
